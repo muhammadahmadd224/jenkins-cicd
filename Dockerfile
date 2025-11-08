@@ -1,22 +1,23 @@
-FROM node:18-alpine
+# Use Node.js 20 Alpine version (lightweight and compatible)
+FROM node:20-alpine
 
-# Set working directory inside the container
+# Set working directory
 WORKDIR /app
 
-# Copy dependency files first (case-sensitive)
+# Copy dependency files first
 COPY package*.json ./
 
 # Install dependencies
 RUN npm install
 
-# Copy the rest of your source code
+# Copy rest of the source code
 COPY . .
 
-# ✅ Build the NestJS project (TypeScript → dist folder)
+# Build the NestJS app
 RUN npm run build
 
-# Expose your app port
+# Expose port
 EXPOSE 3000
 
-# Start the app
+# Start the application
 CMD ["node", "dist/main"]
