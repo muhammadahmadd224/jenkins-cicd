@@ -43,7 +43,7 @@ pipeline {
             steps {
                 emailext(
                     subject: "NestJS application deployed successfully",
-                    body: "The Docker container for the NestJS app is running successfully on http://54.226.4.87:${PORT}/",
+                    body: "The Docker container for the NestJS app is running successfully on http://54.209.242.110:${PORT}/",
                     to: "${EMAIL}"
                 )
             }
