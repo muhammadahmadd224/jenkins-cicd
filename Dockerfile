@@ -1,4 +1,4 @@
-# Use Node.js 20 Alpine version (lightweight and compatible)
+# Use Node.js 20 Alpine version
 FROM node:20-alpine
 
 # Set working directory
@@ -7,7 +7,9 @@ WORKDIR /app
 # Copy dependency files first
 COPY package*.json ./
 
-
+# Install NestJS CLI globally + dependencies
+RUN npm install -g @nestjs/cli \
+    && npm install
 
 # Copy rest of the source code
 COPY . .
