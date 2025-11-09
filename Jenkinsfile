@@ -39,7 +39,7 @@ pipeline {
             }
         }
 
-        stage('Send Email Notification') {
+        stage('Send Email Notification to our mobile') {
             steps {
                 emailext(
                     subject: "NestJS application deployed successfully",
